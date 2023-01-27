@@ -5,7 +5,7 @@
 This repository contains 3 implementations of FizzBuzz:
 
 - `simple`: a very simple version
-- `monolithic`: a cleaner version with constraint to stay monolithic
+- `monolithic`: a cleaner version with constraint to stay monolithic (one class to handle the algorithm)
 - `modulable`: a version focused on evolutivity with more SRP and OCP
 
 Proposed architecture is inspired from Robert C. Martin's Clean Architecture.
