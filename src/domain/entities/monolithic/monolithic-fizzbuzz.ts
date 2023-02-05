@@ -23,22 +23,26 @@ export class MonolithicFizzBuzz implements FizzBuzz {
     this.result = MonolithicFizzBuzz.INITIAL_RESULT_VALUE;
   }
 
-  private applyFizzRule() {
+  private applyFizzRule(): void {
     if (this.matchesFizzRule()) {
       this.appendFizzConversionToResult();
     }
   }
 
-  private applyBuzzRule() {
+  private applyBuzzRule(): void {
     if (this.matchesBuzzRule()) {
       this.appendBuzzConversionToResult();
     }
   }
 
-  private applyDefaultRuleIfNeeded() {
-    if (this.result === MonolithicFizzBuzz.INITIAL_RESULT_VALUE) {
+  private applyDefaultRuleIfNeeded(): void {
+    if (this.conversionHasntBeenFoundYet()) {
       this.setResultWithDefaultConversion();
     }
+  }
+
+  private conversionHasntBeenFoundYet(): boolean {
+    return this.result === MonolithicFizzBuzz.INITIAL_RESULT_VALUE;
   }
 
   private matchesFizzRule(): boolean {
