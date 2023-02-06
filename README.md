@@ -52,8 +52,6 @@ npm run start:modulable
 
 ## Missing
 
-- Clean Architecture: move FizzBuzz instanciation from app.ts into the UseCase. Create an enum to determine which instace create. Create a adapter to adapt the command line argument to the enum value. Use a factory to encapsulate this.
-- SRP and an adapter layer to split app.ts and reduce it to reading raw command line arguments (infrastructure's command line parser to adapter's controller)
-- Create a DI container in infrastructure layer to encapsulate how the application is built
-- Functional tests around the usecase to fully cover the domain (only the algorithm is tested)
+- Make a better command line parser and also parse the range to use
+- Functional tests around the usecase to fully cover the domain (only the entity is tested)
 - Integration tests with mocks on infrastructure objects (console displayer)
