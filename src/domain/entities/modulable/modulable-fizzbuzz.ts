@@ -1,20 +1,54 @@
 import { FizzBuzz } from "../fizzbuzz";
-import { Converter } from "./convertor";
-import { MathHelper } from "./math";
-import { BuzzRule } from "./rules/buzz-rule";
-import { DefaultRule } from "./rules/default-rule";
-import { FizzRule } from "./rules/fizz-rule";
 import { Rule } from "./rules/rule";
 
 export class ModulableFizzBuzz implements FizzBuzz {
-  convert(input: number): string {
-    const convertor: Converter = this.buildConvertor();
-    return convertor.convert(input);
+  private static readonly INITIAL_RESULT_VALUE = "";
+
+  private readonly rules: Array<Rule>;
+  private readonly defaultRule: Rule;
+  private input: number = 0;
+  private result: string = ModulableFizzBuzz.INITIAL_RESULT_VALUE;
+
+  constructor(rules: Array<Rule>, defaultRule: Rule) {
+    this.rules = rules;
+    this.defaultRule = defaultRule;
+    this.input = 0;
   }
 
-  private buildConvertor(): Converter {
-    const math: MathHelper = new MathHelper();
-    const rules: Array<Rule> = [new FizzRule(math), new BuzzRule(math)];
-    return new Converter(rules, new DefaultRule());
+  convert(input: number): string {
+    this.initializeWithNumber(input);
+    this.applyRules();
+    this.applyDefaultRuleIfNeeded();
+    return this.result;
+  }
+
+  private initializeWithNumber(input: number): void {
+    this.input = input;
+    this.result = ModulableFizzBuzz.INITIAL_RESULT_VALUE;
+  }
+
+  private applyRules(): void {
+    for (const rule of this.rules) {
+      this.applyRule(rule);
+    }
+  }
+
+  private applyRule(rule: Rule): void {
+    this.result += rule.apply(this.input);
+  }
+
+  private applyDefaultRuleIfNeeded(): void {
+    if (this.hasAResult()) {
+      return;
+    }
+    this.applyDefaultRule();
+  }
+
+  private hasAResult(): boolean {
+    return this.result !== ModulableFizzBuzz.INITIAL_RESULT_VALUE;
+  }
+
+  private applyDefaultRule(): void {
+    this.applyRule(this.defaultRule);
   }
 }

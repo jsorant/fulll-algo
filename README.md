@@ -10,9 +10,9 @@ Instructions for this test are available [here](https://github.com/fulll/hiring/
 
 This repository contains 3 implementations of FizzBuzz:
 
-- `simple`: a very simple version
-- `monolithic`: a cleaner version with constraint to stay monolithic (one class to handle the algorithm)
-- `modulable`: a version focused on evolutivity with more SRP and OCP
+- `simple`: a very simple version with constraint to use only one function
+- `monolithic`: a cleaner version with constraint to use only one class
+- `modulable`: a version focused on modularity with SRP and OCP
 
 Proposed architecture is inspired from Robert C. Martin's Clean Architecture.
 
@@ -52,7 +52,6 @@ npm run start:modulable
 
 ## Missing
 
-- modulable-fizzbuzz.ts: inject convertor & make a factory to create a ModulableFizzBuzz
 - Clean Architecture: move FizzBuzz instanciation from app.ts into the UseCase. Create an enum to determine which instace create. Create a adapter to adapt the command line argument to the enum value. Use a factory to encapsulate this.
 - SRP and an adapter layer to split app.ts and reduce it to reading raw command line arguments (infrastructure's command line parser to adapter's controller)
 - Create a DI container in infrastructure layer to encapsulate how the application is built

@@ -1,4 +1,4 @@
-import { MathHelper } from "../math";
+import { MathHelper } from "../utilities/math";
 import { Rule } from "./rule";
 
 export class FizzRule implements Rule {

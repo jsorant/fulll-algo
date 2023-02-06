@@ -1,8 +1,9 @@
 import { ModulableFizzBuzz } from "./modulable/modulable-fizzbuzz";
+import { ModulableFizzBuzzFactory } from "./modulable/modulable-fizzbuzz-factory";
 import { MonolithicFizzBuzz } from "./monolithic/monolithic-fizzbuzz";
 import { SimpleFizzBuzz } from "./simple/simple-fizzbuzz";
 
-const modulable: ModulableFizzBuzz = new ModulableFizzBuzz();
+const modulable: ModulableFizzBuzz = ModulableFizzBuzzFactory.build();
 const monolithic: MonolithicFizzBuzz = new MonolithicFizzBuzz();
 const simple: SimpleFizzBuzz = new SimpleFizzBuzz();
 
