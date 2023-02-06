@@ -4,7 +4,7 @@
 
 This repository contains a technical test regarding my application at Fulll.
 
-Instructions for this test are available at [here](https://github.com/fulll/hiring/blob/master/Algo/fizzbuzz.md).
+Instructions for this test are available [here](https://github.com/fulll/hiring/blob/master/Algo/fizzbuzz.md).
 
 ## Description
 
